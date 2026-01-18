@@ -7,30 +7,43 @@ import time
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
 
-# Confirm it loaded
-starred_list = ['*' for char in API_KEY]
-API_KEY_STARRED = "".join(starred_list)
+# Confirm it loaded (starred for safety)
+API_KEY_STARRED = "*" * len(API_KEY)
 print("PC Proxy running. Loaded API key:", API_KEY_STARRED)
 
 # Set current COM port for VEX IQ Brain
 Current_COM = "COM8"
 
 # Open serial connection to VEX IQ Brain
-# Change COM3 to whatever your Brain uses
-serial_port = serial.Serial(Current_COM, 115200, timeout=1)
+serial_port = serial.Serial(Current_COM, 115200, timeout=0.1)
 time.sleep(2)  # Give serial time to initialize
 
 def call_fake_api():
     # Replace this with the real API call later
     return "42"  # pretend the API returned "42"
 
+buffer = ""
+
 while True:
-    line = serial_port.readline().decode().strip()
+    raw = serial_port.read()  # read ONE byte
 
-    if line:
-        print("Robot sent:", line)
+    if raw:
+        # Convert raw byte safely
+        if isinstance(raw, int):
+            char = chr(raw)
+        else:
+            char = raw.decode()
 
-    if line == "GET_DATA":
-        result = call_fake_api()
-        serial_port.write((result + "\n").encode())
-        print("Sent back:", result)
+        if char == "\n":
+            line = buffer.strip()
+            buffer = ""
+
+            print("Robot sent:", line)
+
+            if line == "GET_DATA":
+                result = call_fake_api()
+                serial_port.write((result + "\n").encode())
+                print("Sent back:", result)
+
+        else:
+            buffer += char
