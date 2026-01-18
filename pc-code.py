@@ -17,7 +17,7 @@ Current_COM = "COM8"
 
 # Open serial connection to VEX IQ Brain
 # Change COM3 to whatever your Brain uses
-ser = serial.Serial(Current_COM, 115200, timeout=1)
+serial_port = serial.Serial(Current_COM, 115200, timeout=1)
 time.sleep(2)  # Give serial time to initialize
 
 def call_fake_api():
@@ -25,12 +25,12 @@ def call_fake_api():
     return "42"  # pretend the API returned "42"
 
 while True:
-    line = ser.readline().decode().strip()
+    line = serial_port.readline().decode().strip()
 
     if line:
         print("Robot sent:", line)
 
     if line == "GET_DATA":
         result = call_fake_api()
-        ser.write((result + "\n").encode())
+        serial_port.write((result + "\n").encode())
         print("Sent back:", result)
