@@ -12,9 +12,12 @@ starred_list = ['*' for char in API_KEY]
 API_KEY_STARRED = "".join(starred_list)
 print("PC Proxy running. Loaded API key:", API_KEY_STARRED)
 
+# Set current COM port for VEX IQ Brain
+Current_COM = "COM8"
+
 # Open serial connection to VEX IQ Brain
 # Change COM3 to whatever your Brain uses
-ser = serial.Serial("COM8", 115200, timeout=1)
+ser = serial.Serial(Current_COM, 115200, timeout=1)
 time.sleep(2)  # Give serial time to initialize
 
 def call_fake_api():
