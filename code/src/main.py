@@ -7,7 +7,9 @@
 #                                                                              #
 # ---------------------------------------------------------------------------- #
 
+# Imports
 from vex import *
+import time
 
 # Brain should be defined by default
 brain=Brain()
@@ -23,4 +25,24 @@ distance_7 = Distance(Ports.PORT7)
 LED = Touchled(Ports.PORT12)
 
 
-# Python now drops into REPL
+# Main code
+
+# Move Robot
+drivetrain.drive_for(FORWARD, 800, MM)
+
+# Give the PC time to connect
+time.sleep(2)
+
+while True:
+    # Send a request to the PC
+    brain.serial().write("GET_DATA\n")
+
+    # Wait for a response
+    response = brain.serial().readline()
+
+    if response:
+        decoded = response.decode().strip()
+        brain.screen.clear_screen()
+        brain.screen.print("API says: " + decoded)
+
+    time.sleep(2)
