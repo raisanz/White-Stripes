@@ -33,16 +33,29 @@ drivetrain.drive_for(FORWARD, 800, MM)
 # Give the PC time to connect
 time.sleep(2)
 
+buffer = ""
+
 while True:
-    # Send a request to the PC
+    # Send request
     brain.serial().write("GET_DATA\n")
 
-    # Wait for a response
-    response = brain.serial().readline()
+    # Read one byte
+    raw = brain.serial().read()
 
-    if response:
-        decoded = response.decode().strip()
-        brain.screen.clear_screen()
-        brain.screen.print("API says: " + decoded)
+    if raw:
+        # Convert raw data to a character safely
+        if isinstance(raw, int):
+            char = chr(raw)          # convert int → character
+        else:
+            char = raw.decode()      # convert bytes → string
 
-    time.sleep(2)
+        if char == "\n":
+            decoded = buffer.strip()
+            buffer = ""
+
+            brain.screen.clear_screen()
+            brain.screen.print("API says: " + decoded)
+        else:
+            buffer += char
+
+    time.sleep(0.05)
