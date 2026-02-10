@@ -3,19 +3,19 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
-  background: #1a0000; /* deep dark red */
-  color: #f2f2f2;       /* soft white */
+  background: #1a0000; /* deep dark red background */
+  color: #f2f2f2;
   line-height: 1.7;
 }
 
 /* Header */
 header {
-  background: #330000; /* dark red accent */
+  background: #2b2b2b; /* light dark gray */
   color: white;
   padding: 30px 20px;
   text-align: center;
   letter-spacing: 1px;
-  border-bottom: 3px solid red;
+  border-bottom: 3px solid #b30000; /* dark red accent */
 }
 
 header h1 {
@@ -26,7 +26,7 @@ header h1 {
 header h2 {
   margin-top: 8px;
   font-weight: normal;
-  color: #ffe6e6; /* soft white-pink tint */
+  color: #e6e6e6;
 }
 
 /* Navigation */
@@ -35,7 +35,7 @@ nav {
 }
 
 nav a {
-  color: #ff4d4d; /* brighter red accent */
+  color: #ff4d4d; /* bright red accent */
   text-decoration: none;
   margin: 0 12px;
   font-weight: bold;
@@ -56,20 +56,20 @@ hr {
 
 /* Section Cards */
 section {
-  background: #260000; /* dark red card */
+  background: #2b2b2b; /* light dark gray panels */
   margin: 30px auto;
   padding: 25px;
   width: 85%;
   max-width: 900px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(255,0,0,0.18); /* subtle red glow */
+  box-shadow: 0 4px 12px rgba(255,0,0,0.15); /* subtle red glow */
 }
 
 section h2 {
   margin-top: 0;
   font-size: 1.9rem;
   color: #ff4d4d; /* bright red */
-  border-left: 5px solid red;
+  border-left: 5px solid #b30000; /* dark red accent */
   padding-left: 10px;
 }
 
