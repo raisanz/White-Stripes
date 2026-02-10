@@ -3,13 +3,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f4f4f4;
+  background: gray;
   color: #222;
   line-height: 1.6;
 }
 
 header {
-  background: #1a1a1a;
+  background: gray;
   color: white;
   padding: 20px;
   text-align: center;
@@ -20,7 +20,7 @@ header h1 {
 }
 
 nav a {
-  color: #ff4d4d;
+  color: red;
   text-decoration: none;
   margin: 0 10px;
   font-weight: bold;
@@ -28,6 +28,7 @@ nav a {
 
 nav a:hover {
   text-decoration: underline;
+  color: white;
 }
 
 hr {
@@ -37,7 +38,7 @@ hr {
 }
 
 section {
-  background: white;
+  background: gray;
   margin: 20px auto;
   padding: 20px;
   width: 85%;
@@ -49,7 +50,7 @@ section {
 section h2 {
   margin-top: 0;
   font-size: 1.8rem;
-  color: #333;
+  color: white;
 }
 
 ul {
@@ -61,9 +62,9 @@ li {
 }
 
 a {
-  color: #cc0000;
+  color: red;
 }
 
 a:hover {
-  color: #990000;
+  color: white;
 }
