@@ -3,14 +3,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
-  background: #d9d9d9; /* lighter modern gray */
+  background: white;
   color: #222;
   line-height: 1.7;
 }
 
 /* Header */
 header {
-  background: #3a3a3a; /* deeper gray for contrast */
+  background: red;
   color: white;
   padding: 30px 20px;
   text-align: center;
@@ -25,7 +25,7 @@ header h1 {
 header h2 {
   margin-top: 8px;
   font-weight: normal;
-  color: #f2f2f2;
+  color: #f9f9f9;
 }
 
 /* Navigation */
@@ -34,7 +34,7 @@ nav {
 }
 
 nav a {
-  color: red;
+  color: white;
   text-decoration: none;
   margin: 0 12px;
   font-weight: bold;
@@ -42,32 +42,32 @@ nav a {
 }
 
 nav a:hover {
-  color: white;
+  color: #ffe6e6;
   text-decoration: underline;
 }
 
 /* Divider */
 hr {
   border: none;
-  border-top: 1px solid #666;
+  border-top: 1px solid #ffcccc;
   margin-top: 25px;
 }
 
 /* Section Cards */
 section {
-  background: #f2f2f2; /* soft white-gray card */
+  background: white;
   margin: 30px auto;
   padding: 25px;
   width: 85%;
   max-width: 900px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(255,0,0,0.15);
 }
 
 section h2 {
   margin-top: 0;
   font-size: 1.9rem;
-  color: #3a3a3a;
+  color: red;
   border-left: 5px solid red;
   padding-left: 10px;
 }
@@ -89,5 +89,97 @@ a {
 }
 
 a:hover {
-  color: #3a3a3a;
+  color: #990000;
+}/* Global Layout */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: white;
+  color: #222;
+  line-height: 1.7;
+}
+
+/* Header */
+header {
+  background: red;
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+header h2 {
+  margin-top: 8px;
+  font-weight: normal;
+  color: #f9f9f9;
+}
+
+/* Navigation */
+nav {
+  margin-top: 15px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 12px;
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+
+nav a:hover {
+  color: #ffe6e6;
+  text-decoration: underline;
+}
+
+/* Divider */
+hr {
+  border: none;
+  border-top: 1px solid #ffcccc;
+  margin-top: 25px;
+}
+
+/* Section Cards */
+section {
+  background: white;
+  margin: 30px auto;
+  padding: 25px;
+  width: 85%;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(255,0,0,0.15);
+}
+
+section h2 {
+  margin-top: 0;
+  font-size: 1.9rem;
+  color: red;
+  border-left: 5px solid red;
+  padding-left: 10px;
+}
+
+/* Lists */
+ul {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 10px;
+  font-size: 1.05rem;
+}
+
+/* Links */
+a {
+  color: red;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #990000;
 }
