@@ -1,70 +1,93 @@
-
+/* Global Layout */
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
-  background: gray;
+  background: #d9d9d9; /* lighter modern gray */
   color: #222;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
+/* Header */
 header {
-  background: gray;
+  background: #3a3a3a; /* deeper gray for contrast */
   color: white;
-  padding: 20px;
+  padding: 30px 20px;
   text-align: center;
+  letter-spacing: 1px;
 }
 
 header h1 {
-  margin-bottom: 5px;
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+header h2 {
+  margin-top: 8px;
+  font-weight: normal;
+  color: #f2f2f2;
+}
+
+/* Navigation */
+nav {
+  margin-top: 15px;
 }
 
 nav a {
   color: red;
   text-decoration: none;
-  margin: 0 10px;
+  margin: 0 12px;
   font-weight: bold;
+  font-size: 1.05rem;
 }
 
 nav a:hover {
-  text-decoration: underline;
   color: white;
+  text-decoration: underline;
 }
 
+/* Divider */
 hr {
   border: none;
-  border-top: 1px solid #444;
-  margin-top: 20px;
+  border-top: 1px solid #666;
+  margin-top: 25px;
 }
 
+/* Section Cards */
 section {
-  background: gray;
-  margin: 20px auto;
-  padding: 20px;
+  background: #f2f2f2; /* soft white-gray card */
+  margin: 30px auto;
+  padding: 25px;
   width: 85%;
   max-width: 900px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 section h2 {
   margin-top: 0;
-  font-size: 1.8rem;
-  color: white;
+  font-size: 1.9rem;
+  color: #3a3a3a;
+  border-left: 5px solid red;
+  padding-left: 10px;
 }
 
+/* Lists */
 ul {
   padding-left: 20px;
 }
 
 li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  font-size: 1.05rem;
 }
 
+/* Links */
 a {
   color: red;
+  font-weight: bold;
 }
 
 a:hover {
-  color: white;
+  color: #3a3a3a;
 }
