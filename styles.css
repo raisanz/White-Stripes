@@ -10,7 +10,7 @@ body {
 
 /* Header */
 header {
-  background: #6D8196; /* light dark gray */
+  background: #454d57; /* light dark gray */
   color: white;
   padding: 30px 20px;
   text-align: center;
@@ -56,7 +56,7 @@ hr {
 
 /* Section Cards */
 section {
-  background: #2b2b2b; /* light dark gray panels */
+  background: #454d57; /* light dark gray panels */
   margin: 30px auto;
   padding: 25px;
   width: 85%;
