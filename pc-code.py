@@ -1,49 +1,76 @@
+from google import genai
 from dotenv import load_dotenv
 import os
 import serial
 import time
 
-# Load API key from .env
+# -----------------------------
+# 1. Gemini setup
+# -----------------------------
 load_dotenv()
 API_KEY = os.getenv("API_KEY")
 
-# Confirm it loaded (starred for safety)
-API_KEY_STARRED = "*" * len(API_KEY)
-print("PC Proxy running. Loaded API key:", API_KEY_STARRED)
+client = genai.Client(api_key=API_KEY)
+MODEL = "gemini-2.5-flash"
 
-# Set current COM port for VEX IQ Brain
-Current_COM = "COM8"
+# -----------------------------
+# 2. Serial setup (controller ↔ PC)
+# -----------------------------
+SERIAL_PORT = "COM11"   # change to your controller's COM port
+BAUD_RATE = 115200
 
-# Open serial connection to VEX IQ Brain
-serial_port = serial.Serial(Current_COM, 115200, timeout=0.1)
-time.sleep(2)  # Give serial time to initialize
+ser = serial.Serial(SERIAL_PORT, BAUD_RATE, timeout=1)
+time.sleep(2)
 
-def call_fake_api():
-    # Replace this with the real API call later
-    return "42"  # pretend the API returned "42"
+print("PC proxy running. AI will command robot to move 1 meter.")
 
-buffer = ""
-
+# -----------------------------
+# 3. Main loop
+# -----------------------------
 while True:
-    raw = serial_port.read()  # read ONE byte
+    try:
+        if ser.in_waiting > 0:
+            robot_msg = ser.readline().decode(errors="ignore").strip()
+            if not robot_msg:
+                continue
 
-    if raw:
-        # Convert raw byte safely
-        if isinstance(raw, int):
-            char = chr(raw)
-        else:
-            char = raw.decode()
+            print(f"[Robot → PC] {robot_msg}")
 
-        if char == "\n":
-            line = buffer.strip()
-            buffer = ""
+            # -----------------------------
+            # 4. Ask Gemini what to do
+            # -----------------------------
+            prompt = """
+You are controlling a robot.  
+Always respond ONLY with a command in this exact format:
 
-            print("Robot sent:", line)
+FORWARD 1000
 
-            if line == "GET_DATA":
-                result = call_fake_api()
-                serial_port.write((result + "\n").encode())
-                print("Sent back:", result)
+This means: move forward 1000 millimeters (1 meter).
+Do not add extra words. Do not explain. Only output the command.
+"""
 
-        else:
-            buffer += char
+            response = client.models.generate_content(
+                model=MODEL,
+                contents=prompt
+            )
+
+            ai_reply = (response.text or "").strip()
+            print(f"[AI → PC] {ai_reply}")
+
+            # -----------------------------
+            # 5. Send command back to robot
+            # -----------------------------
+            ser.write((ai_reply + "\n").encode())
+
+    except KeyboardInterrupt:
+        print("Exiting PC proxy.")
+        break
+    except Exception as e:
+        print(f"[ERROR] {e}")
+        try:
+            ser.write(b"AI_ERROR\n")
+        except:
+            pass
+        time.sleep(1)
+
+ser.close()
