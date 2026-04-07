@@ -28,7 +28,6 @@
 from vex import *
 
 # Configure Robot
-controller = Controller()
 brain = Brain()
 brain_inertial = Inertial()
 left_drive_smart = Motor(Ports.PORT1, 1.0, False)
@@ -65,7 +64,6 @@ def next_sort_mode() -> None:
 # code for choosing sorting mode
 def sorting() -> None:
     brain.buttonLeft.pressed(next_sort_mode)
-    controller.buttonFUp.pressed(next_sort_mode)
 
     while True:
         screen_prep()
@@ -78,7 +76,7 @@ def sorting() -> None:
         '''elif sorting_mode == 3:
             brain_print("Sort by Size")
             led.set_color(Color.ORANGE)'''
-        if brain.buttonCheck.pressing() or controller.buttonFDown.pressing():
+        if brain.buttonCheck.pressing():
             led.set_color(Color.GREEN)
             break
         
@@ -238,8 +236,6 @@ def main() -> None:
     three = 0
     four = 0
     five = 0
-
-    controller.buttonEUp.pressed(end)
 
     led.set_fade(FadeType.OFF)
     for i in range(3):

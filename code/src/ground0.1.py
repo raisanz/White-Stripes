@@ -95,12 +95,12 @@ def pick_up(open_hand = True) -> None:
     drivetrain.drive_for(FORWARD, 4, INCHES)
     hand.spin_for(REVERSE, 40, DEGREES)
     # arm.spin_to_position(ARM_MAX, DEGREES, wait=False)
-    arm.spin_for(FORWARD, 250, DEGREES)
+    arm.spin_for(FORWARD, 10, DEGREES)
     drivetrain.drive_for(REVERSE, 4, INCHES)
 # box drop off code
 def drop_off() -> None:
     drivetrain.drive_for(FORWARD, 4, INCHES)
-    arm.spin_for(REVERSE, 250, DEGREES)
+    arm.spin_for(REVERSE, 10, DEGREES)
     hand.spin_for(FORWARD, 40, DEGREES, wait=False)
     drivetrain.drive_for(REVERSE, 4, INCHES)
     hand.spin_for(REVERSE, 60, DEGREES)
