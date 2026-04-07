@@ -1,5 +1,5 @@
 # White-Stripes
-This repo is for our ROBOFEST 2025-26 Exhibition Team. We are using VeX IQ 2nd generation robots which is recommended to code with the VEX VS-Code extension.
+This repo is for our ROBOFEST 2025-26 Exhibition Team. We are using VeX IQ 2nd generation robots which is recommended to code with the VEX VS-Code extension. For Judges: Please Read the version exel spreadsheet before reveiwing our code under the code folder, note the ground# code docs will not be run at the compitition in most cases.
 
 
 
