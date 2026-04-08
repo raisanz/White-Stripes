@@ -92,3 +92,8 @@ a {
 a:hover {
   color: white;
 }
+
+iframe{
+  text-align: center;
+  display: block;
+}
