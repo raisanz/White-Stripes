@@ -3,7 +3,7 @@
 #   Module:       main.py                                                      #
 #   Author:       azb99                                     		           #
 #   Project:      White-Stripes                                                #
-#   Description:  IQ2 project                 				           	   	   #
+#   Description:  box sorting project                 	              	   	   #
 # ---------------------------------------------------------------------------- #
 
 # Notes:
