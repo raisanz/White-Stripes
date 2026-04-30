@@ -35,4 +35,4 @@ Please vist our website at: https://raisanz.github.io/White-Stripes/
 
 ![image](https://github.com/rudraforweb/Python-Robotics/assets/74744301/b0b145aa-e7e6-43b9-8437-6ba7faba8375)
 
-
+![image](https://github.com/user-attachments/assets/d64a63aa-1a32-43e9-8de6-ef57bff34045)
